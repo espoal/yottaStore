@@ -1,16 +1,39 @@
 # Introduction
+
+This repository contains the architectural documentation of the yottaStore project, which is made up of two main 
+components:
+
+- yottaFS: A key value store backed by NVMe storage and CRDTs
+- yottaStore: A large scale distributed datastore built on top of yottaFS
+
+Three main ideas are at the core of the yottaStore project:
+
+- NVMe storage is fast enough to be a replacement for RAM [NVMe as RAM]()
+- The dynamo paper is an excellent starting point to build a distributed datastore [Dynamo as a datastore]()
+- io_uring is the best interface for async IO [Why io_uring]()
+
+## yottaFS
+
+yottaFS is a single node key value store, designed to exploit the performance characteristics of NVMe storage.
+One could think of it as a cross between a disk backed Redis and BTRFs. 
+While an interesting project in itself, yottaFS is also the foundation of yottaStore.
+
+Read more documentation [here](docs/yottaFS.md) or visit the [repository]()
+
+## yottaStore
+
 yottaStore is a [next generation]() storage system aiming to **scale out to the yotta byte range** 
 and **scale up to millions of concurrent read and writes per record**. 
 The goal is to have **two orders of magnitude more throughput than DynamoDB**, 
 dollar per dollar, while maintaining a **sub-ms latency**. 
-Check our [benchmarks](docs/10_benchmarks/benchmarks.md)
+
+// TODO: move to a separate sections
 
 Yotta Store is built on top of a 512 bit distributed machine, with a 4kib word size.
 We try to design a system which can exploit the capabilities of
 modern hardware and software, like  NVMe disks or `io_uring`. 
 Read more in the [docs](docs/README.md)
 
-- [Golang implementation](https://github.com/yottaStore/golang) (WIP) backed by Cloud Storage
 - [Rust implementation](https://github.com/yottaStore/rust) (WIP) Backed by io_uring NVMe API
 - 
 ## Main features
