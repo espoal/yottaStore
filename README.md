@@ -12,7 +12,7 @@ Three main ideas are at the core of the yottaStore project:
 - The dynamo paper is an excellent starting point to build a distributed datastore [Dynamo as a datastore]()
 - io_uring is the best interface for async IO [Why io_uring]()
 
-## yottaFS
+# yottaFS
 
 yottaFS is a single node key value store, designed to exploit the performance characteristics of NVMe storage.
 One could think of it as a cross between a disk backed Redis and BTRFs. 
@@ -20,22 +20,23 @@ While an interesting project in itself, yottaFS is also the foundation of yottaS
 
 Read more documentation [here](docs/yottaFS.md) or visit the [repository]()
 
-## yottaStore
+# yottaStore
 
 yottaStore is a [next generation]() storage system aiming to **scale out to the yotta byte range** 
 and **scale up to millions of concurrent read and writes per record**. 
 The goal is to have **two orders of magnitude more throughput than DynamoDB**, 
 dollar per dollar, while maintaining a **sub-ms latency**. 
 
-// TODO: move to a separate sections
+Read more in the [docs](docs/README.md) or visit the [repository]()
+
+
+// TODO: move to a separate section
 
 Yotta Store is built on top of a 512 bit distributed machine, with a 4kib word size.
 We try to design a system which can exploit the capabilities of
 modern hardware and software, like  NVMe disks or `io_uring`. 
-Read more in the [docs](docs/README.md)
 
-- [Rust implementation](https://github.com/yottaStore/rust) (WIP) Backed by io_uring NVMe API
-- 
+ 
 ## Main features
 
 - Linear scalability, up to 10^9 nodes and 10 yotta bytes of addressable space.
@@ -45,6 +46,8 @@ Read more in the [docs](docs/README.md)
 - Cheap transactions and indexes, at around `o(n)`.
 - Storage decoupled from compute with a serverless architecture.
 - Two orders of magnitude faster than DynamoDB, dollar per dollar.
+
+
 
 
 ## Techniques used
