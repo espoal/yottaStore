@@ -1,5 +1,5 @@
 # Introduction
-Yotta Store is a [next generation]() storage system aiming to **scale out to the yotta byte range** 
+yottaStore is a [next generation]() storage system aiming to **scale out to the yotta byte range** 
 and **scale up to millions of concurrent read and writes per record**. 
 The goal is to have **two orders of magnitude more throughput than DynamoDB**, 
 dollar per dollar, while maintaining a **sub-ms latency**. 
